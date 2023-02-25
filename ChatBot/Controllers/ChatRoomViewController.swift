@@ -60,7 +60,10 @@ class ChatRoomViewController: UIViewController {
 			self?.messages = result
 			self?.chatBubbleTableView.reloadData()
 			
-			let count = self!.messages.count
+			guard let count = self?.messages.count else {
+				print("self is nil")
+				return
+			}
 			
 			if count > 0 {
 				let indexPath = IndexPath(row: (self?.messages.count)! - 1, section: 0)
@@ -180,7 +183,7 @@ extension ChatRoomViewController: UITextViewDelegate {
 						"title: \(story.title)\nHere's the story:\n\(story.story)"
 					
 					let botReply = Message(sender: safeOtherUser, body: botReplyMessage)
-					
+					// 네트워킹 중에 나감
 					MessageManager.addMessage(message: botReply, chatRoom: self!.chatRoom, completionHandler: {})
 				}
 

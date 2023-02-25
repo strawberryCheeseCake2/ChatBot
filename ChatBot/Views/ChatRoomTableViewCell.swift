@@ -115,6 +115,10 @@ class ChatRoomTableViewCell: UITableViewCell {
 		profileImageLabel.snp.makeConstraints{ make in
 			make.center.equalToSuperview()
 		}
+		
+		latestChatLabel.snp.makeConstraints { make in
+			make.width.lessThanOrEqualTo(250)
+		}
 	}
 	
 	required init?(coder: NSCoder) {

@@ -42,10 +42,12 @@ class BotReplyManager {
 		]
 		
 		let parameters: [String: Any] = [
-			"model": "ada",
+//			"model": "ada",
+			"model": "text-davinci-003",
 			"prompt": "\(question)",
 			"temperature": 0,
-			"max_tokens": 5
+//			"max_tokens": 100
+			"max_tokens": 100
 		]
 		
 		AF.request(completionURL,
@@ -81,6 +83,7 @@ class BotReplyManager {
 			"model": "text-davinci-edit-001",
 			"input": "\(text2Edit)",
 			"instruction": "Fix the spelling mistakes"
+//			"instruction": "It should be "
 		]
 		
 		AF.request(editingURL,
